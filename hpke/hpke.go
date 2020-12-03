@@ -17,12 +17,16 @@ import (
 
 const versionLabel = "HPKE-06"
 
+// XXX Rename this to Context?
+//
 // Exporter allows exporting secrets from an HPKE context using a
 // variable-length PRF. Export takes as input a context string expCtx and a
 // desired length (in bytes), and produces a secret derived from the internal
 // exporter secret using the corresponding KDF Expand function.
 type Exporter interface {
 	Export(expCtx []byte, len uint16) []byte
+	Suite() Suite
+	Marshal() ([]byte, error)
 }
 
 // Sealer encrypts a plaintext using an AEAD encryption. The caller supplies

@@ -40,11 +40,13 @@ func (st state) keySchedule(ss, info, psk, pskID []byte) (*encdecCtx, error) {
 	)
 
 	return &encdecCtx{
-		aead,
+		nil,
 		st.Suite,
+		exporterSecret,
+		key,
 		baseNonce,
 		make([]byte, Nn),
-		exporterSecret,
+		aead,
 	}, nil
 }
 
