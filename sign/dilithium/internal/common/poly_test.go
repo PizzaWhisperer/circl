@@ -230,6 +230,9 @@ func BenchmarkMulBy2toDGeneric(b *testing.B) {
 func BenchmarkMulHat(b *testing.B) {
 	var p Poly
 	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		p.RandLe2Q()
+		b.StartTimer()
 		p.MulHat(&p, &p)
 	}
 }

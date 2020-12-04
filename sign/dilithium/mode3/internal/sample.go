@@ -11,7 +11,9 @@ import (
 
 // DeriveX4Available indicates whether the system supports the quick fourway
 // sampling variants like PolyDeriveUniformX4.
-var DeriveX4Available = keccakf1600.IsEnabledX4() && !UseAES
+//var DeriveX4Available = keccakf1600.IsEnabledX4() && !UseAES
+
+var DeriveX4Available = false
 
 // For each i, sample ps[i] uniformly with coefficients of norm less than γ₁
 // using the the given seed and nonces[i].  ps[i] may be nil and is ignored

@@ -70,6 +70,9 @@ func BenchmarkInvNTTGeneric(b *testing.B) {
 func BenchmarkNTT(b *testing.B) {
 	var p Poly
 	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		p.RandLe2Q()
+		b.StartTimer()
 		p.NTT()
 	}
 }
@@ -77,6 +80,9 @@ func BenchmarkNTT(b *testing.B) {
 func BenchmarkInvNTT(b *testing.B) {
 	var p Poly
 	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		p.RandLe2Q()
+		b.StartTimer()
 		p.InvNTT()
 	}
 }
